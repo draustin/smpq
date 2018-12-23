@@ -25,9 +25,9 @@ def test_Manager_map():
     with smpq.Manager(4) as manager:
         results=list(manager.map(square_and_add_hs,range(4)))
     assert results==[1,2,5,10]
-    ##
-    with smpq.Manager(4) as manager:
-        results=list(manager.map(use_numpy,range(4)))
+    ## TODO Disabled to remove numpy dependency... put it back optionally.
+    # with smpq.Manager(4) as manager:
+    #     results=list(manager.map(use_numpy,range(4)))
     ##
     with pytest.raises(ValueError) as e:
         with smpq.Manager(2) as manager:

@@ -1,5 +1,9 @@
 import logging
-from PyQt4 import QtGui,QtTest
+import pytest
+try:
+    from PyQt4 import QtGui,QtTest
+except ImportError:
+    pytest.skip("PyQt4 not installed, skipping tests.", allow_module_level=True)
 from smpq import Manager
 from smpq.testing import *
 logging.getLogger('smpq').setLevel(logging.DEBUG)
