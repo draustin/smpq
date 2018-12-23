@@ -1,0 +1,1 @@
+from .smpq import Manager,MapMultipleException,pool,pool_or_none
