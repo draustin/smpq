@@ -10,6 +10,7 @@ TODOs:
 Log levels:
     2: Several messages per task
     3: One message per task
+    10: Once per Manager.
 """
 from typing import Callable
 import multiprocessing, dill, queue, logging, warnings, time, signal
@@ -130,6 +131,7 @@ class Manager:
         self.sleep = sleep
         self.num_tasks_added = 0
         self.num_results_got = 0
+        logger.log(10, 'Setup Manager with num_workers = %d, return_task_num = %s.', self.num_workers, self.retire_task_num)
 
     def make_worker(self, number):
         worker = Worker(number, self.tasks, self.results, self.protocol, self.retire_task_num)
